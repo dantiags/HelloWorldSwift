@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Hello World - Main-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="HelloWorld" customModuleProvider="target" sceneMemberID="viewController">
@@ -24,14 +24,14 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="20" y="70" width="360" height="21"/>
+                                    <rect key="frame" x="20" y="117" width="360" height="21"/>
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zda-Pe-BbJ">
                                 <rect key="frame" x="249" y="99" width="103" height="30"/>
                                 <state key="normal" title="Say Something"/>
                                 <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="149" y="144" width="103" height="30"/>
+                                    <rect key="frame" x="141" y="276" width="103" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="saySomethingTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B4M-BZ-YZb"/>
@@ -52,10 +52,10 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="vgV-ni-gnN">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="FEp-6L-nGX">
+                    <navigationItem key="navigationItem" title="Hello World - Main" id="vgV-ni-gnN">
+                        <barButtonItem key="rightBarButtonItem" title="Clima" id="FEp-6L-nGX">
                             <connections>
-                                <segue destination="tdM-0N-4gO" kind="show" id="PqG-6m-q3z"/>
+                                <segue destination="tdM-0N-4gO" kind="show" id="zvM-0c-PRg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -68,10 +68,10 @@
             </objects>
             <point key="canvasLocation" x="1204.5" y="231"/>
         </scene>
-        <!--View Controller-->
+        <!--HelloWorld - 2 Screen-->
         <scene sceneID="tKb-fF-BGo">
             <objects>
-                <viewController id="tdM-0N-4gO" sceneMemberID="viewController">
+                <viewController id="tdM-0N-4gO" customClass="ClimaViewController" customModule="HelloWorld" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UhP-JQ-F3l"/>
                         <viewControllerLayoutGuide type="bottom" id="lKX-aX-3Yo"/>
@@ -79,32 +79,70 @@
                     <view key="view" contentMode="scaleToFill" id="9cU-on-qS2">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hola Mundo Cruel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iac-r7-uvP">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ciudad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qf0-Zy-bVX">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="131" y="289" width="138" height="21"/>
+                                    <rect key="frame" x="171" y="79" width="55" height="21"/>
                                 </variation>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clima" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5e5-jA-A4N">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="13" y="197" width="367" height="21"/>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0OO-rZ-432">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Get Clima!!"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="160" y="285" width="76" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="buscarClima:" destination="tdM-0N-4gO" eventType="touchUpInside" id="YuN-Sh-gBT"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xgr-ss-uj9">
+                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="14" y="108" width="373" height="30"/>
+                                </variation>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="iac-r7-uvP"/>
+                                <exclude reference="Qf0-Zy-bVX"/>
+                                <exclude reference="5e5-jA-A4N"/>
+                                <exclude reference="0OO-rZ-432"/>
+                                <exclude reference="Xgr-ss-uj9"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="iac-r7-uvP"/>
+                                <include reference="Qf0-Zy-bVX"/>
+                                <include reference="5e5-jA-A4N"/>
+                                <include reference="0OO-rZ-432"/>
+                                <include reference="Xgr-ss-uj9"/>
                             </mask>
                         </variation>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="HelloWorld - 2 Screen" id="z6I-r9-lYf"/>
+                    <connections>
+                        <outlet property="txtCiudad" destination="Xgr-ss-uj9" id="Jmf-Lv-N6d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pv9-3V-ya1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2172" y="231"/>
+            <point key="canvasLocation" x="2145" y="231"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="U4o-dE-VT9">

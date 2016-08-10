@@ -12,7 +12,9 @@ import UIKit
 class ClimaViewController: UIViewController {
     
     @IBOutlet var txtCiudad: UITextField!
+    @IBOutlet var labelClima: UILabel!
     
+    var clima:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +34,10 @@ class ClimaViewController: UIViewController {
     
     func callWebService(){
         
-        let urlPath = "http://api.openweathermap.org/data/2.5/weather?q=\(txtCiudad.text!)&APPID=0cfc989802e761ee5405f3c50ec342f8"
+        let source = txtCiudad.text!
+        let result = source.stringByReplacingOccurrencesOfString(" ", withString: "")
+        
+        let urlPath = "http://api.openweathermap.org/data/2.5/weather?q=\(result)&APPID=0cfc989802e761ee5405f3c50ec342f8&lang=sp"
         
         let url = NSURL(string:urlPath)
         
@@ -44,9 +49,14 @@ class ClimaViewController: UIViewController {
                 print(error!.localizedDescription)
             }else{
             
-                var nsdata:NSData = NSData(data: data!)
+                let nsdata:NSData = NSData(data: data!)
             
                 self.parseRespuestaJson(nsdata)
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    print(self.clima)
+                    self.labelClima.text = self.clima!
+                })
             }
             
             
@@ -65,15 +75,24 @@ class ClimaViewController: UIViewController {
             try jsonComplete = NSJSONSerialization.JSONObjectWithData(nsdata, options: NSJSONReadingOptions.MutableContainers)
             
             print(jsonComplete)
+            
+            
+            let informacionClima = jsonComplete["weather"]
+            
+            if let jsonArray = informacionClima as? NSArray {
+                
+                jsonArray.enumerateObjectsUsingBlock({ model, index, stop in
+                    self.clima = model["description"] as! String
+                    
+                })
+                
+            }
+
 
         } catch {
             print(error)
         }
-        
-        
-
-        
-        
+    
     }
     
     

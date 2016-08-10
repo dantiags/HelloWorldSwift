@@ -137,6 +137,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="HelloWorld - 2 Screen" id="z6I-r9-lYf"/>
                     <connections>
+                        <outlet property="labelClima" destination="5e5-jA-A4N" id="BBa-dX-z2H"/>
                         <outlet property="txtCiudad" destination="Xgr-ss-uj9" id="Jmf-Lv-N6d"/>
                     </connections>
                 </viewController>
